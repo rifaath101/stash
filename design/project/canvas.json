@@ -1,0 +1,19 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-19T10:00:00Z"},
+  "title": "Stash design concept",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1280, "h": 1180, "title": "1 · Product brief"},
+    "Library.dc.html": {"x": 1360, "y": 0, "w": 1440, "h": 1180, "title": "2 · Library", "expand": "fill", "is_interactive": true},
+    "Search.dc.html": {"x": 2880, "y": 0, "w": 1440, "h": 1180, "title": "3 · Search by meaning", "expand": "fill", "is_interactive": true},
+    "Detail.dc.html": {"x": 4400, "y": 0, "w": 1440, "h": 1180, "title": "4 · Link detail", "expand": "fill", "is_interactive": true},
+    "SignIn.dc.html": {"x": 5920, "y": 0, "w": 1440, "h": 1180, "title": "5 · Sign in / Create account", "expand": "fill", "is_interactive": true}
+  },
+  "order": ["Main.dc.html", "Library.dc.html", "Search.dc.html", "Detail.dc.html", "SignIn.dc.html"],
+  "notes": {
+    "heading": {"x": 0, "y": -300, "text": "Stash: save what you read and watch, find it by what it was about", "kind": "title1", "maxW": 7360}
+  },
+  "designSystems": []
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stash search results</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0F766E}a:hover{color:#115E59}
+:focus-visible{outline:3px solid #0F766E;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 1180px; background: #F7F7F5; color: #18181B; font-family: Inter, system-ui, sans-serif">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #E4E4E7">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px">
+<a href="Library.dc.html" style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #18181B; text-decoration: none">Stash</a>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px; border: 2px solid #0F766E; border-radius: 12px; background: #FFFFFF">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search your library</label>
+<input id="q" type="search" value="why is my database query slow" style="flex: 1; min-width: 0; border: none; font-size: 15px; font-family: inherit; color: #18181B; background: transparent">
+</div>
+<button aria-label="Account" style="width: 40px; height: 40px; border-radius: 999px; border: none; background: #CCFBF1; color: #115E59; font-weight: 700; font-size: 15px; font-family: inherit">MR</button>
+</div>
+</header>
+
+<main style="max-width: 860px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<a href="Library.dc.html" style="font-size: 14px; font-weight: 500; text-decoration: none">← Back to library</a>
+<h1 style="margin: 0; font-size: 24px; font-weight: 700">3 links match your search</h1>
+<p style="margin: 0; font-size: 15px; color: #52525B">Matched by meaning, so a link can show up even when it doesn't use your words.</p>
+</div>
+
+<a href="Detail.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E4E4E7; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 13px">
+<span style="padding: 4px 10px; border-radius: 999px; background: #0F766E; color: #FFFFFF; font-weight: 600">Best match</span>
+<span style="color: #3F3F46; font-weight: 600">Article · 14 min read</span>
+<span style="color: #71717A">sqlnotes.example</span>
+</div>
+<h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600">A practical guide to database indexes</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #52525B">Explains how indexes speed up lookups, when Postgres ignores them, and how to read a query plan to find slow queries.</p>
+<div style="background: #F0FDFA; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5; color: #115E59"><strong style="font-weight: 600">Why it matched:</strong> it covers finding and fixing slow queries.</div>
+</a>
+
+<a href="Detail.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E4E4E7; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 13px">
+<span style="padding: 4px 10px; border-radius: 999px; background: #E4E4E7; color: #27272A; font-weight: 600">Good match</span>
+<span style="color: #3F3F46; font-weight: 600">YouTube video · 24:05</span>
+</div>
+<h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600">N+1 queries explained, and how to spot them</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #52525B">Shows how an app can quietly run hundreds of small queries in a loop, and how to batch them into one.</p>
+<div style="background: #F4F4F5; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5; color: #3F3F46"><strong style="font-weight: 600">Why it matched:</strong> a common cause of slow database access.</div>
+</a>
+
+<a href="Detail.dc.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #E4E4E7; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 13px">
+<span style="padding: 4px 10px; border-radius: 999px; background: #E4E4E7; color: #27272A; font-weight: 600">Related</span>
+<span style="color: #3F3F46; font-weight: 600">Article · 7 min read</span>
+<span style="color: #71717A">backendbasics.example</span>
+</div>
+<h2 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600">Caching 101: when to put Redis in front of your database</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #52525B">When caching helps, what to cache, and how to keep the cache from serving stale data.</p>
+<div style="background: #F4F4F5; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5; color: #3F3F46"><strong style="font-weight: 600">Why it matched:</strong> about reducing load on a slow database.</div>
+</a>
+
+<p style="margin: 0; font-size: 14px; color: #52525B; text-align: center">Not what you meant? Try describing it differently, or <a href="Library.dc.html">browse by tag</a>.</p>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

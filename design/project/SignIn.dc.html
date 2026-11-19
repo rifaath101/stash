@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stash sign in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0F766E}a:hover{color:#115E59}
+:focus-visible{outline:3px solid #0F766E;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height: 1180px; background: #F7F7F5; color: #18181B; font-family: Inter, system-ui, sans-serif; display: flex; flex-wrap: wrap">
+
+<section style="flex: 1 1 480px; min-width: 0; background: #0F766E; color: #FFFFFF; padding: 64px 56px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 48px">
+<div style="font-size: 26px; font-weight: 700; letter-spacing: -0.02em">Stash</div>
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 520px">
+<h1 style="margin: 0; font-size: 44px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em">Save what you read and watch. Find it by what it was about.</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #CCFBF1">Paste a link to an article or a YouTube video. Stash summarizes it, tags it, and finds it again when you only remember the idea.</p>
+</div>
+<div style="font-size: 14px; color: #CCFBF1">Your library is private to you.</div>
+</section>
+
+<section style="flex: 1 1 480px; min-width: 0; padding: 64px 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
+<div style="width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 28px">
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; background: #E4E4E7; border-radius: 12px">
+<button onClick="{{ showSignIn }}" aria-pressed="{{ signInPressed }}" style="{{ signInTabStyle }}">Sign in</button>
+<button onClick="{{ showSignUp }}" aria-pressed="{{ signUpPressed }}" style="{{ signUpTabStyle }}">Create account</button>
+</div>
+
+<sc-if value="{{ isSignIn }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 700">Welcome back</h2>
+<p style="margin: 0; font-size: 15px; color: #52525B">Sign in to your library.</p>
+</div>
+<sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}">
+<div role="alert" style="background: #FEF3F2; border: 1px solid #FECACA; color: #B42318; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5">That email and password don't match. Check them and try again.</div>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="si-email" style="font-size: 14px; font-weight: 600">Email</label>
+<input id="si-email" type="email" autocomplete="email" placeholder="you@example.com" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D8; border-radius: 12px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="si-password" style="font-size: 14px; font-weight: 600">Password</label>
+<div style="display: flex; gap: 8px">
+<input id="si-password" type="{{ siType }}" autocomplete="current-password" style="flex: 1; min-width: 0; height: 48px; padding: 0 14px; border: 1px solid #D4D4D8; border-radius: 12px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<button type="button" onClick="{{ toggleSi }}" aria-controls="si-password" aria-label="{{ siToggleAria }}" style="flex: none; height: 48px; padding: 0 16px; border: 1px solid #D4D4D8; border-radius: 12px; background: #FFFFFF; color: #18181B; font-size: 14px; font-weight: 600; font-family: inherit">{{ siToggle }}</button>
+</div>
+</div>
+<a href="Library.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 12px; background: #0F766E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600">Sign in</a>
+<p style="margin: 0; font-size: 14px; color: #52525B; text-align: center">New to Stash? <a href="#" onClick="{{ showSignUp }}">Create an account</a></p>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSignUp }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 28px; font-weight: 700">Create your library</h2>
+<p style="margin: 0; font-size: 15px; color: #52525B">It takes a few seconds. No card needed.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="su-name" style="font-size: 14px; font-weight: 600">Name</label>
+<input id="su-name" type="text" autocomplete="name" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D8; border-radius: 12px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="su-email" style="font-size: 14px; font-weight: 600">Email</label>
+<input id="su-email" type="email" autocomplete="email" placeholder="you@example.com" style="height: 48px; padding: 0 14px; border: 1px solid #D4D4D8; border-radius: 12px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="su-password" style="font-size: 14px; font-weight: 600">Password</label>
+<div style="display: flex; gap: 8px">
+<input id="su-password" type="{{ suType }}" autocomplete="new-password" aria-describedby="su-password-hint" style="flex: 1; min-width: 0; height: 48px; padding: 0 14px; border: 1px solid #D4D4D8; border-radius: 12px; font-size: 15px; font-family: inherit; background: #FFFFFF">
+<button type="button" onClick="{{ toggleSu }}" aria-controls="su-password" aria-label="{{ suToggleAria }}" style="flex: none; height: 48px; padding: 0 16px; border: 1px solid #D4D4D8; border-radius: 12px; background: #FFFFFF; color: #18181B; font-size: 14px; font-weight: 600; font-family: inherit">{{ suToggle }}</button>
+</div>
+<div id="su-password-hint" style="font-size: 13px; line-height: 1.5; color: #52525B">At least 15 characters. A few words you'll remember work well. No symbols or numbers needed.</div>
+</div>
+<a href="Library.dc.html" style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 12px; background: #0F766E; color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 600">Create account</a>
+<p style="margin: 0; font-size: 14px; color: #52525B; text-align: center">Already have an account? <a href="#" onClick="{{ showSignIn }}">Sign in</a></p>
+</div>
+</sc-if>
+
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startOn":{"editor":"enum","options":["Sign in","Create account"],"default":"Sign in"},"showError":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+const fallback = (this.props.startOn ?? 'Sign in') === 'Create account' ? 'signup' : 'signin';
+const mode = (this.state && this.state.mode) || fallback;
+const on = 'height: 40px; border: none; border-radius: 9px; background: #FFFFFF; color: #18181B; font-size: 14px; font-weight: 600; font-family: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.08)';
+const off = 'height: 40px; border: none; border-radius: 9px; background: transparent; color: #3F3F46; font-size: 14px; font-weight: 500; font-family: inherit';
+const st = this.state || {};
+return {
+signInPressed: mode === 'signin',
+signUpPressed: mode === 'signup',
+siType: st.siShow ? 'text' : 'password',
+siToggle: st.siShow ? 'Hide' : 'Show',
+siToggleAria: st.siShow ? 'Hide password' : 'Show password',
+toggleSi: () => this.setState({ siShow: !st.siShow }),
+suType: st.suShow ? 'text' : 'password',
+suToggle: st.suShow ? 'Hide' : 'Show',
+suToggleAria: st.suShow ? 'Hide password' : 'Show password',
+toggleSu: () => this.setState({ suShow: !st.suShow }),
+isSignIn: mode === 'signin',
+isSignUp: mode === 'signup',
+showError: this.props.showError ?? false,
+signInTabStyle: mode === 'signin' ? on : off,
+signUpTabStyle: mode === 'signup' ? on : off,
+showSignIn: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ mode: 'signin' }); },
+showSignUp: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ mode: 'signup' }); }
+};
+}
+}
+</script>
+</body>
+</html>
